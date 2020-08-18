@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/model/person';
-
+import { faCoffee, faHippo } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
@@ -9,6 +9,8 @@ import { Person } from 'src/app/model/person';
 export class PersonComponent implements OnInit {
  public person : Person
  public people : Person[] = [];
+ public faCoffee = faCoffee;
+ public faHippo = faHippo;
   constructor() { }
 
   ngOnInit(): void {

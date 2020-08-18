@@ -20,3 +20,7 @@
 
 ### For test unit
 > npm i mocha @types/mocha -D
+
+## Fontawesome
+> ng add @fortawesome/angular-fontawesome@..version...
+

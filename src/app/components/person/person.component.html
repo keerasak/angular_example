@@ -18,4 +18,7 @@
 /////lloooppp//////
 <div *ngFor="let p of people">
     {{p.heightCm}} = {{p.bmi| number:'1.2-2'}}
-</div>
+    <fa-icon [icon]="faCoffee"></fa-icon>
+    <fa-icon [icon]="faHippo" [spin]=true></fa-icon>
+    <button><fa-icon [icon]="faHippo" ></fa-icon>Click me</button>
+  </div>

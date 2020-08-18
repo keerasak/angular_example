@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { CandlestickChartComponent } from './components/candlestick-chart/candlestick-chart.component';
 import { CalculateBmiComponent} from './components/calculate-bmi/calculate-bmi.component';
-import { PersonComponent } from './components/person/person.component'
+import { PersonComponent } from './components/person/person.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { PersonComponent } from './components/person/person.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
