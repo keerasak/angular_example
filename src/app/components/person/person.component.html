@@ -1,0 +1,21 @@
+
+<div>
+    Person : 
+  </div>
+  <div>
+    Weight : {{person.weightKg}} <input type="range" min="0" max="200" step="1" [(ngModel)]="person.weightKg"/> Kg
+  </div>
+  <div>
+    Height : {{person.heightCm}} <input type="range" min="0" max="300" step="1" [(ngModel)]="person.heightCm"/> Cm
+  </div>
+  <div>
+    BMI : {{person.bmi | number:'1.2-2'}}
+</div>
+<div>
+    Category : {{person.category}}
+</div>
+
+/////lloooppp//////
+<div *ngFor="let p of people">
+    {{p.heightCm}} = {{p.bmi| number:'1.2-2'}}
+</div>
