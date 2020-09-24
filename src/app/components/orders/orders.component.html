@@ -1,0 +1,66 @@
+<div>
+
+    <select [(ngModel)]="selectedPortfolio" class="form-control">
+        <option [ngValue]="undefined">Please choose a portfolio</option>
+        <option [ngValue]="p" *ngFor="let p of portfolios">
+          {{ p.name }}
+        </option>
+      </select>
+    
+    <div class = "my-2">
+          ID :  <input type="number" class="form-control mb-1"  [(ngModel)]="tempOrder.id" min="0"/>
+          PriceBTC :  <input type="number" class="form-control mb-1"  [(ngModel)]="tempOrder.priceBTC" min="0"/>
+          Volume : <input type="number" class="form-control mb-1"  [(ngModel)]="tempOrder.volumeBTC" min="0"/>
+    </div>
+    <div class = "btn-group my-2">
+        <button  class ="btn btn-outline-success" (click)="Buy()">Buy</button>
+        <button (click)="Sell()" class ="btn btn-outline-danger">Sell</button>
+    </div>
+
+    <div *ngIf="selectedPortfolio !== undefined">
+        Initial Cash:
+        {{ selectedPortfolio.initialCash | number:'1.2-2'}} THB
+    </div>
+
+     <!-- Emmet (ZenCoding)
+    table.table>thead>tr>th*6 -->
+    <table class="table" *ngIf="selectedPortfolio">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Side</th>
+                <th>Price(BTC)</th>
+                <th>Volume(BTC)</th>
+                <th>Price(THB)</th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+   
+       <tbody>
+        <tr *ngFor="let o of selectedPortfolio.orders">
+            <td>{{o.id}}</td>
+            <td>{{o.side}}</td>
+            <td><input type="number" [(ngModel)]="o.priceBTC" step="10000"/></td>
+            <td><input type="number" [(ngModel)]="o.volumeBTC" step="0.1"/></td>
+            <td classs ="text-right">
+                <app-money  
+                    [value]="o.ThaiBaht"
+                    [decimalPlaces] = "1"
+                    [symbol] = ''
+                    [bold] = 'true'
+                ></app-money>
+            </td>
+            <td>
+                <button  class="btn btn-link" (click)="Remove(o)">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    </table> 
+<div *ngIf="selectedPortfolio">
+    {{selectedPortfolio.balanceTHB}}
+    {{selectedPortfolio.balanceBTC}}
+</div>   
+</div>

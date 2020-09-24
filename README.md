@@ -24,3 +24,9 @@
 ## Fontawesome
 > ng add @fortawesome/angular-fontawesome@..version...
 
+## TDD use Mocha
+> npm i mocha @types/mocha --save-dev
+> npm i ts-node -D
+
+## create component
+> ng g c components/(name) --skip-tests

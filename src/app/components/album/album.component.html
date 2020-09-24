@@ -1,0 +1,11 @@
+<div *ngIf="album"
+     class ="border border-dark rounded shadow-sm p-2 my-2">
+    <h5>{{album.name}}</h5>
+    
+    <div *ngFor="let s of album.songs">
+        <app-song [song]="s" (select)="onClick($event)"></app-song>
+    </div>
+    <div *ngIf="currentSong">
+        {{currentSong.name}}
+    </div>
+</div>

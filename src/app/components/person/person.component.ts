@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/model/person';
 import { faCoffee, faHippo } from '@fortawesome/free-solid-svg-icons';
-@Component({
+import {LogsService} from '../../services/logs.service'
+ @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.css']
@@ -11,7 +12,12 @@ export class PersonComponent implements OnInit {
  public people : Person[] = [];
  public faCoffee = faCoffee;
  public faHippo = faHippo;
-  constructor() { }
+  constructor(private logs: LogsService) {}
+
+  public async doLog() { 
+    const s = `Hello at ${new Date().toLocaleString()}`;
+    await this.logs.add(s);
+  }
 
   ngOnInit(): void {
     this.person = new Person(170,65)
